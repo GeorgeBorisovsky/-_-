@@ -1,0 +1,23 @@
+// задача 1 из 3
+public class Practicum {
+    public static void main(String[] args) {
+        double interestRate = 10;
+
+        System.out.println("Введите начальную сумму в выбранной валюте:");
+        // посчитайте начальную сумму и сохраните в переменную amount
+        double amount = NumberReader.getDouble();
+
+        System.out.println("Введите количество лет для расчёта:");
+        // посчитайте количество лет и сохраните в переменную years
+        int years = NumberReader.getInteger();
+
+        // напишите условие выполнения цикла
+        for (int i = 1; i <= years; i++) {
+            // формула для суммы за один год на процентную ставку
+            amount = amount + amount * (interestRate / 100);
+        }
+
+        // выведите на экран сообщение с итоговой суммой
+        System.out.println("К окончанию срока сумма составит: " + amount + " " + "RUB");
+    }
+}
