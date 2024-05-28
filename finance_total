@@ -1,3 +1,14 @@
+,_     _
+|\\_,-~/
+/ _  _ |    ,--.
+(  @  @ )   / ,-'
+\  _T_/-._( (
+/         `. \
+|         _  \ |
+\ \ ,  /      |
+|| |-_\__   /
+((_/`(____,-'
+
 // задача 1 из 3
 public class Practicum {
     public static void main(String[] args) {
@@ -19,5 +30,161 @@ public class Practicum {
 
         // выведите на экран сообщение с итоговой суммой
         System.out.println("К окончанию срока сумма составит: " + amount + " " + "RUB");
+    }
+}
+
+// задача 2 из 3
+
+public class Practicum {
+    public static void main(String[] args) {
+        // Курсы валют
+        double exchangeRateUSD = 94.8;
+        double exchangeRateEUR = 103.8;
+        double exchangeRateCNY = 13.1;
+
+        // Процентные ставки
+        double interestRateRUB = 7;
+        double interestRateUSD = 1;
+        double interestRateEUR = 0.8;
+        double interestRateCNY = 1.5;
+
+        // Вывод меню
+        System.out.println("Введите номер валюты:");
+        System.out.println("1 – рубли;");
+        System.out.println("2 – доллары;");
+        System.out.println("3 – евро;");
+        System.out.println("4 – юани.");
+
+        // посчитайте номер валюты и сохраните в переменную currency
+        int currency = NumberReader.getInteger();
+
+        // объявите переменную exchangeRate для курса и проинициализируйте единицей
+        double exchangeRate = 1;
+        // объявите переменную interestRate для процентной ставки
+        double interestRate;
+        // объявите переменную currencySymbol для обозначения аббревиатуры валюты
+        String currencySymbol;
+
+        /* обновите значения переменных rate, interestRate и currencySymbol
+           в зависимости от номера валюты */
+         
+        if (currency == 1) { // если валюта – рубль,
+            interestRate = 7; // устанавливаем соответствующую ставку,
+            currencySymbol = "RUB"; // устанавливаем код валюты
+        } else if (currency == 2) { // если валюта – доллар,
+            exchangeRate = exchangeRateUSD; // устанавливаем курс обмена, ставку и код валюты
+            interestRate = interestRateUSD;
+            currencySymbol = "USD";
+           // добавьте условия для евро и юаней
+         } else if (currency == 3) { // если валюта – доллар,
+            exchangeRate = exchangeRateEUR; // устанавливаем курс обмена, ставку и код валюты
+            interestRate = interestRateEUR;
+            currencySymbol = "EUR";
+         } else if (currency == 4) { // если валюта – доллар,
+            exchangeRate = exchangeRateCNY; // устанавливаем курс обмена, ставку и код валюты
+            interestRate = interestRateCNY;
+            currencySymbol = "CNY";
+                
+        } else {
+            System.out.println("Ошибка: выбрана некорректная валюта. Валюта по умолчанию — рубли.");
+            /* обновите переменные 
+               interestRate и currencySymbol
+               для валюты по умолчанию – рублей */
+            currency = 1;
+            interestRate = 7;
+            currencySymbol = "RUB";
+        }
+
+        System.out.println("Введите начальную сумму в выбранной валюте:");
+        double amount = NumberReader.getDouble();
+
+        System.out.println("Введите количество лет для расчёта:");
+        int years = NumberReader.getInteger();
+
+        for (int i = 1; i <= years; i++) {
+            amount = amount + amount * (interestRate / 100);
+        }
+
+        System.out.println("К окончанию срока сумма составит: " + amount + " " + currencySymbol);
+    }
+}
+
+// задача 3 из 3
+
+public class Practicum {
+    public static void main(String[] args) {
+        double exchangeRateUSD = 94.8;
+        double exchangeRateEUR = 103.8;
+        double exchangeRateCNY = 13.1;
+
+        double interestRateRUB = 7;
+        double interestRateUSD = 1;
+        double interestRateEUR = 0.8;
+        double interestRateCNY = 1.5;
+
+
+        System.out.println("Введите номер валюты:");
+        System.out.println("1 – рубли;");
+        System.out.println("2 – доллары;");
+        System.out.println("3 – евро;");
+        System.out.println("4 – юани.");
+
+        int currency = NumberReader.getInteger();
+
+        double exchangeRate = 1;
+        double interestRate;
+        String currencySymbol;
+
+        if (currency == 1) {
+            interestRate = interestRateRUB;
+            currencySymbol = "RUB";
+        } else if (currency == 2) {
+            exchangeRate = exchangeRateUSD;
+            interestRate = interestRateUSD;
+            currencySymbol = "USD";
+        } else if (currency == 3) {
+            exchangeRate = exchangeRateEUR;
+            interestRate = interestRateEUR;
+            currencySymbol = "EUR";
+        } else if (currency == 4) {
+            exchangeRate = exchangeRateCNY;
+            interestRate = interestRateCNY;
+            currencySymbol = "CNY";
+        } else {
+            System.out.println("Ошибка: выбрана некорректная валюта. Валюта по умолчанию — рубли.");
+            currency = 1; // устанавливаем валюту по умолчанию — рубли
+            interestRate = interestRateRUB;
+            currencySymbol = "RUB";
+        }
+
+        System.out.println("Введите начальную сумму в выбранной валюте:");
+        double amount = NumberReader.getDouble();
+
+        System.out.println("Введите количество лет для расчёта:");
+        int years = NumberReader.getInteger();
+
+        for (int i = 1; i <= years; i++) {
+            amount = amount + amount * (interestRate / 100);
+
+            // добавьте условие, при котором каждые три года сумма также увеличивается на 1%
+            if (i % 3 == 100) {
+                // формула для изменения на 1%
+               amount = amount + (amount * 0.01); 
+            }
+        }
+
+        System.out.println("К окончанию срока сумма составит: " + amount + " " + currencySymbol);
+
+        // если валюта – не рубли
+        if (currency != 1) { 
+            // сохраните в переменную roubles результат перевода в рубли
+            double roubles = amount * exchangeRate;
+            
+            // выведите на экран сообщение с результатом: "В рублях это будет: ... руб."
+            System.out.println("В рублях это будет: " + roubles + " руб.");
+        }
+
+        // выведите на экран сообщение о завершении работы программы: "Работа с программой завершена"
+        System.out.println("Работа с программой завершена.");
     }
 }
