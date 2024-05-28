@@ -23,3 +23,154 @@ public class Practicum {
     }
 		}
 }
+
+// задача программу для отправки в космос ракеты SpaceY
+
+public class Practicum {
+    public static void main(String[] args) {
+        int secondsBeforeStart = 70; // Секунды до старта, цикл должен начинаться с этого значения 
+
+        // Место для цикла
+        for (int i = secondsBeforeStart; i >= 0; i = i - 7) {
+            System.out.println("До старта SpaceY осталось " + i);
+        }
+
+        System.out.println("Поехали! Узнаем, есть ли жизнь на Марсе!");
+    }
+}
+/* Успех!
+Решение прошло все проверки! “ヽ(´▽｀)ノ” */
+
+//задача Байт тем временем налёг на новый корм
+
+public class Practicum {
+
+    public static void main(String[] args) {
+        int money = 500; // деньги на корм
+        int foodPerDay = 100; // стоимость пачки корма
+        int days = 0; // дни, когда вы сможете покупать корм
+				
+				// здесь опишите цикл
+        for (int i = money; i > 0; i = i - foodPerDay) {
+            days = days + 3;
+        
+        // здесь отразите, что вы будете покупать корм каждые три дня
+        // опишите строку вывода
+        System.out.println("На " + days + "-й день останется " + (i - foodPerDay) + " рублей.");
+        }// цикл заканчивается здесь
+
+				System.out.println("Денег хватит на " + days + " дней. ");
+    }
+}
+
+/*Коллеги с курса по языку Python попросили написать программу, 
+которая бы рисовала схематичного питона, движущегося в заданном направлении.*/
+
+//~≈≈≈≈≈≈≈≈≈(º..º)
+
+public class Practicum {
+    public static void main(String[] args) {
+        String head = "(º..º)"; // голова
+        String tail = "~"; // хвост
+        String body = "≈"; // тело
+
+        String direction = "right"; //направление движения
+        // String direction = "left";
+
+        if (direction.equals("right")) { //если направление – right,
+            System.out.print(tail); // рисуется хвост, тело, голова
+            for (int i = 1; i < 10; i++) {
+              System.out.print(body);
+            }
+            System.out.print(head);
+        } else if (direction.equals("left")) { // если направление – left,
+            System.out.print(head); // рисуется голова, тело, хвост
+            for (int i = 1; i < 10; i++) {
+              System.out.print(body);
+            }
+            System.out.print(tail);
+        } else { 
+            System.out.println("Команда непонятна."); // сообщение о том, что команда непонятна
+        }
+    }
+}
+
+//"Ах люблю тебя, Фаина-Фаина"
+
+
+public class Practicum {
+    public static void main(String[] args) {
+        String doubleFaina = "Фаина Фаина";
+        String fainaNa = "Файна-на";
+        String fainaFainaNa = "Фаина Файна-на";
+
+
+        for (int line = 1; line <= 10; line = line + 1) { // объявите цикл с переменной line от 1 до 10.
+            // напишите if...else if согласно условию, используя переменные в начале программы
+          if (line == 3) {
+            System.out.println(fainaNa);
+          } else if (line == 9) {
+            System.out.println(fainaNa);  
+           }
+            else if (line == 4) {
+            System.out.println(fainaFainaNa);
+          } else if (line == 10) {
+            System.out.println(fainaFainaNa);  
+           }
+          else {
+            System.out.println(doubleFaina);
+          }
+        }
+      System.out.println("Ах люблю тебя, Фаина-Фаина");
+        // выведите финальную строку
+    }
+}
+
+// Напишите программу, которая вычисляет общую стоимость покупки, если всего было куплено 12 товаров.
+
+public class Practicum {
+    public static void main(String[] args) {
+        int totalSum = 0; // переменная для подсчёта суммы
+        int price = 100; // стоимость одного товара
+        int itemAmount = 12; // количество товаров
+        for (int i = 1; i <= itemAmount; i++) { // опишите цикл 
+            if (i % 4 == 0) { // выполните проверку на каждый 4-й товар
+                // каждый четвёртый товар — за полцены
+                totalSum = totalSum + (price / 2);
+            } else {
+                // все остальные — за полную стоимость 
+                totalSum = totalSum + price;
+            }
+        }
+
+        System.out.println("Общая сумма покупок: " + totalSum + " рублей.");
+    }
+}
+
+// Байт решил заняться спортом и просит вас помочь написать ему программу для тренировки в зале. 
+
+public class Practicum {
+    public static void main(String[] args) {
+
+        // в тренировке должно выполниться 5 кругов — напишите здесь цикл
+        for (int i = 1; i < 6; i++) {
+        System.out.println("Круг " + i);
+
+        // выполнение каждого круга зависит от условия — проверьте, является ли круг чётным
+            if (i % 2 == 0){
+        // если да, то нужно качать пресс
+        System.out.println("Качаем пресс");
+            }
+            else {
+
+        // иначе нужно отжаться
+        System.out.println("Отжимаемся");
+            }
+
+        // независимо от номера круга бегаем в колесе
+        System.out.println("Бегаем в колесе");
+    }
+        
+        System.out.println("Отлично позанимались сегодня! Вы молодец!");
+    }
+}
