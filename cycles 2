@@ -1,0 +1,25 @@
+// задача 1 из 2
+
+public class Practicum {
+    public static void main(String[] args) {
+        // вместо многоточий добавьте нужные значения
+        for (int i = 1; i <= 17; i = i + 1) { 
+            System.out.println(i + "-я овечка перепрыгнула через забор."); // это тело цикла
+        }
+        // цикл завершён, далее выполнится эта строка:
+        System.out.println("Хомяки сыты, овцы целы. Можно отдохнуть!"); 		
+    }
+}
+
+// задача 2 из 2
+
+public class Practicum {
+    public static void main(String[] args) {
+
+        System.out.println("Это первый этаж дома, который построил Джек.");
+        // здесь нужно объявить цикл
+        for (int i = 2; i <= 10; i = i + 1) {
+            System.out.println("А это " + i + "-й этаж, он на один выше, чем этаж " + (i - 1));
+    }
+		}
+}
